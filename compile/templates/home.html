@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Compile & Execute Here</title>
+        <script type="text/javascript" src="../static/tab.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <style>
+            body {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body style="background-color: darkgray;">
+        <h1 style="font-size: 52px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+            &nbsp;&nbsp;Code & Execute Here
+        </h1>
+        <p><h3 style="font-size: 31px;">&nbsp;&nbsp;&nbsp;* Your IP Address :- {{ ip }}</h3></p>
+        <form action="{% url 'my_function' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <table>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <textarea class="form-control" name="program" style="resize: none; font-size: 23px; background-color: black; border: groove 8px orange; color: whitesmoke; font-family: DejaVu Sans Mono; overflow: scroll; white-space: nowrap;" onkeydown=insertTab(this,event) cols=85 rows=21 autofocus>{{program}}</textarea>
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <h4 style="font-size: 21px;">INPUT :-</h4>
+                    <textarea class="form-control" name="input" style="resize: none; font-size: 22px; background-color: black; border: groove 8px orange; color: whitesmoke; font-family: DejaVu Sans Mono; white-space: nowrap;" onkeydown=insertTab(this,event) cols=35 rows=9>{{in}}</textarea>
+                    <h4 style="font-size: 21px;">OUTPUT :-</h4>
+                    <textarea class="form-control" name="output" style="resize: none; font-size: 22px; background-color: black; border: groove 8px orange; color: whitesmoke; font-family: DejaVu Sans Mono; overflow: scroll; white-space: pre; " onkeydown=insertTab(this,event) cols=35 rows=9 readonly>{{out}}</textarea>
+                </td>
+            </table>
+            <br>
+            <div class="text-right">
+                <select name="select1" class="btn btn-primary btn-lg" style="font-size: 26px;">
+                    <option>Python3</option>
+                    <option>C++</option>
+                    <option>C</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="select2" class="btn btn-primary btn-lg" style="font-size: 26px;">
+                    <option>Run</option>
+                    <option>Reset</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" class="btn btn-primary btn-lg" style="font-size: 26px;" value="Done">                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </form>
+    </body>
+</html>
