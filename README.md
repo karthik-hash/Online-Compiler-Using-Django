@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Online Compiler Using Django
 
 ## About
@@ -29,7 +28,3 @@
 
 ## Screenshot
 ![Screenshot](https://github.com/karthik-hash/Online-Compiler-Using-Django/blob/master/Screenshot.png)
-
-=======
-# Online-Compiler-Using-Django
->>>>>>> 8a41b11fa0c91d846362c7cbfd9b780821f96647
