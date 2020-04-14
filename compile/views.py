@@ -34,6 +34,9 @@ def compile(request):
 def python(request):
 
     program = request.POST.get('program')
+
+    s = request.POST.get('select2')
+    
     f = open('program.py','w')
     f.write(program)
     f.close()
@@ -43,6 +46,9 @@ def python(request):
     i.write(inp)
     i.close()
     
+    if 'import os' in program:
+        return [s, program, inp, "You can't import OS module here due to security purposes."]
+
     os.system('python3 program.py < in > out 2> error')
     
     o = open('out')
@@ -54,8 +60,6 @@ def python(request):
     e.close()
     
     os.system('rm in out error program.py')
-
-    s = request.POST.get('select2')
     
     return [s, program, inp, output+error]
 
