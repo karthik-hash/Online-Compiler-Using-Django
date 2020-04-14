@@ -46,8 +46,8 @@ def python(request):
     i.write(inp)
     i.close()
     
-    if 'import os' in program:
-        return [s, program, inp, "You can't import OS module here due to security purposes."]
+    if 'os.system' in program:
+        return [s, program, inp, "You can't use os.system() here due to security purposes."]
 
     os.system('python3 program.py < in > out 2> error')
     
