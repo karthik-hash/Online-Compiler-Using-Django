@@ -10,7 +10,7 @@
 * Python3
 
  To get above packages, run
-		
+ 
 		sudo apt-get install gcc g++ python3
 
 ## Install
