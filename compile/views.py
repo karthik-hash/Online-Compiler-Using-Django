@@ -46,8 +46,8 @@ def python(request):
     i.write(inp)
     i.close()
     
-    if 'os.system' in program:
-        return [s, program, inp, "You can't use os.system() here due to security purposes."]
+    if 'os.system' in program or 'Popen' in program:
+        return [s, program, inp, "You can't use system() or Popen() here due to security purposes."]
 
     os.system('python3 program.py < in > out 2> error')
     
@@ -66,6 +66,9 @@ def python(request):
 def cplus(request):
 
     program = request.POST.get('program')
+
+    s = request.POST.get('select2')
+
     f = open('program.cpp','w')
     f.write(program)
     f.close()
@@ -74,14 +77,15 @@ def cplus(request):
     i = open('in','w')
     i.write(inp)
     i.close()
-    
+
+    if 'system' in program or 'popen' in program:
+       return [s, program, inp, "You can't use system() or popen() here due to security purposes."]
+
     os.system('g++ program.cpp 2> error')
 
     e = open('error')
     error = e.read()
     e.close()
-
-    s = request.POST.get('select2')
 
     if error != '':
         os.system('rm in a.out error program.cpp')
@@ -103,6 +107,9 @@ def cplus(request):
 def c(request):
     
     program = request.POST.get('program')
+    
+    s = request.POST.get('select2')
+
     f = open('program.c','w')
     f.write(program)
     f.close()
@@ -111,14 +118,15 @@ def c(request):
     i = open('in','w')
     i.write(inp)
     i.close()
+
+    if 'system' in program or 'popen' in program:
+       return [s, program, inp, "You can't use system() or popen() here due to security purposes."]
     
     os.system('gcc program.c 2> error')
 
     e = open('error')
     error = e.read()
     e.close()
-
-    s = request.POST.get('select2')
 
     if error != '':
         os.system('rm in a.out error program.c')
