@@ -22,7 +22,7 @@
 
 * To start Django server run
 
-		python manage.py runserver 
+		python3 manage.py runserver 
  
  Now the website is hosted. We can access it from browser at http://127.0.0.1:8000/
 
