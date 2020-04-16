@@ -46,7 +46,7 @@ def python(request):
     i.write(inp)
     i.close()
     
-    if 'os.system' in program or 'Popen' in program:
+    if 'system' in program or 'Popen' in program:
         return [s, program, inp, "You can't use system() or Popen() here due to security purposes."]
 
     os.system('python3 program.py < in > out 2> error')
