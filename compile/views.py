@@ -144,4 +144,3 @@ def c(request):
         return [s, program, inp, output+'\n'+'Segmentation fault (core dumped)']
     else:
         return [s, program, inp, output+error]
-
